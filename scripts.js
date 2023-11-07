@@ -7,3 +7,20 @@ function updateLoadingBar() {
 }
 
 window.addEventListener('scroll', updateLoadingBar);
+
+let isNightLightOn = false;
+
+function toggleNightLight() {
+    const button = document.getElementById('ball');
+    isNightLightOn = !isNightLightOn;
+    
+    if (isNightLightOn) {
+        button.style.transform = 'translateY(-10px)';
+        document.body.style.backgroundColor = '#FFFFFF'; 
+        audio.play();
+    } else {
+        button.style.transform = 'translateY(0)';
+        document.body.style.backgroundColor = '#FFEBD7'; 
+        audio2.play();
+    }
+}

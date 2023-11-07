@@ -12,12 +12,20 @@
 </head>
 <body>
     <div id="loading-bar"></div>
+
+
+    <div id="string"></div>
+    <div id="ball" onclick="toggleNightLight()"></div>
+
+    <audio id="audio" src="lightSwitchOne.mp3"></audio>
+    <audio id="audio2" src="lightSwitchTwo.mp3"></audio>
+
     <ul class="navbar">
         <li class="nav-item right"><a href="https://ashtondunderdale.github.io/portfolio/">Portfolio</a></li>
     </ul>
     <h1>< dev-notes ></h1>
     <!-- <p class="titleName" >By Ashton Dunderdale</p> -->
-    <hr>
+    <hr class="topSeparator">
     <div class="container">
         <div class="side-div">
             <ul>
@@ -54,16 +62,19 @@
 
         <div class="main-div">
 
-            <div id="">
-                <h1>Welcome</h1>
-
+            <br><div id="welcome">
+                <h1 class="blogTitle" >Welcome</h1>
                 <p class="date">November 7, 2023 | 1 min read</p> <br> <!-- calculate this properly -->
+
+                <p>
                 Welcome to my cerebral depot. <br><br>
                 Here, you'll find a collection of my thoughts, primarily serving as an 'idea dump'. <br><br>
                 Furthermore, I'll be recording noteworthy projects and meaningful undertakings to put on display.
-                <p>
-            </div>
+                </p>
+            </div><br>
 
+            <hr class="postSeparator">    
+            
         </div>
     </div>
 </body>
