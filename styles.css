@@ -11,8 +11,17 @@ body{
 }
 
 h1{
+    margin-top: 40px;
     margin-left: 20px;
 }
+
+p {
+    text-align: justify;
+    margin-left: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.5px; 
+}
+
 
 ul.navbar {
     list-style-type: none;
@@ -54,7 +63,7 @@ li.nav-item.right {
 .container {
     margin-top: 10px;
     display: flex; 
-    width: 1100px;
+    width: 900px;
 }
 
 .side-div {
@@ -67,8 +76,6 @@ li.nav-item.right {
 .main-div {
     flex: 1; 
     padding: 20px; 
-    width: 200px;
-    
 }
 
 @media (max-width: 768px) {
@@ -102,7 +109,7 @@ li.nav-item.right {
 
 hr {
     height: 1px;
-    width: 400px;
+    width: 900px;
     margin-left: 20px;
     margin-top: 20px;
     background-color: #000000; 
@@ -113,3 +120,4 @@ hr {
     font-size: 12px;
     text-indent: 22px;
 }
+
