@@ -14,8 +14,14 @@ h1{
     margin-left: 20px;
 }
 
-.blogTitle{
-    margin-top: 40px;
+.titleDiv{
+    margin-top: 20px;
+}
+
+.titleName{
+    margin-left: 250px;
+    margin-top: -25px;
+    font-size: 12px;
 }
 
 p {
@@ -131,7 +137,7 @@ li.nav-item.right {
     height: 1px;
     width: 900px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 21px;
     background-color: #000000; 
     border: none;
 }
