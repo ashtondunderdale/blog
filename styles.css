@@ -1,0 +1,56 @@
+body{
+    background-color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.main-div{
+    border: solid 1px black;
+}
+
+ul.navbar {
+    list-style-type: none;
+    overflow: hidden;
+    margin-left: 120px;
+}
+
+li.nav-item {
+    float: left;
+}
+
+li.nav-item a {
+    display: block;
+    color: rgb(31, 31, 31);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    animation: slideDownAndFade 3s;
+}
+
+li.nav-item a:hover {
+    color: rgb(83, 83, 83);
+    transform: scale(1.03); 
+}
+
+li.nav-item.right {
+    float: right;
+    margin-right: 20px;
+}
+
+
+@keyframes slideDownAndFade {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
