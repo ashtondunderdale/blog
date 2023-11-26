@@ -110,7 +110,7 @@ li.nav-item.right {
 }
 
 .subcategory:hover {
-    color: white; 
+    color: rgb(154, 154, 154); 
 }
 
 .topSeparator {
@@ -193,4 +193,9 @@ li.nav-item.right {
     list-style: none;
     font-size: 14px;
     letter-spacing: 0.5px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
 }
