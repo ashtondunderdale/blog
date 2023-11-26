@@ -20,7 +20,7 @@ function toggleNightLight() {
         audio.play();
     } else {
         button.style.transform = 'translateY(0)';
-        document.body.style.backgroundColor = '#FFEBD7'; 
+        document.body.style.backgroundColor = '#EDDBC0'; 
         audio2.play();
     }
 }
