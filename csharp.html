@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c1c580d1a9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script src="scripts.js"></script>
+    <title>dev-notes</title>
+</head>
+<body>
+    <div id="loading-bar"></div>
+
+
+    <div id="string"></div>
+    <div id="ball" onclick="toggleNightLight()"></div>
+
+    <audio id="audio" src="lightSwitchOne.mp3"></audio>
+    <audio id="audio2" src="lightSwitchTwo.mp3"></audio>
+
+    <ul class="navbar">
+        <li class="nav-item right"><a href="https://ashtondunderdale.github.io/portfolio/">Portfolio</a></li>
+    </ul>
+    <div class="">
+        <a class="link" href="index.html"><h1>< dev-notes ></h1></a> 
+    </div>
+    <hr class="topSeparator">
+    <div class="container">
+        <div class="side-div">
+            <ul>
+                <li class="category">PROGRAMMING<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="brainfuck.html"> <li class="subcategory">BrainFuck</li></a>
+                        <a  class="link" href="csharp.html"> <li class="subcategory">C#</li></a>
+                        <a  class="link" href="python.html"> <li class="subcategory">Python</li></a>
+                        <a  class="link" href="qsharp.html"> <li class="subcategory">Q#</li></a>
+                    </ul>
+                </li> <br>
+                <li class="category">GENERAL<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="mathematics.html"> <li class="subcategory">Mathematics</li></a>
+                        <a  class="link" href="philosophy.html"> <li class="subcategory">Philosophy</li></a>
+                        <a  class="link" href="physics.html"> <li class="subcategory">Physics</li></a>
+                    </ul> <br>
+                </li>
+                <li class="category">PROJECTS<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="dustlands.html"> <li class="subcategory">Dustlands</li></a>
+                        <a  class="link" href="engine.html"> <li class="subcategory">Engine</li></a>
+                    </ul> <br>
+                </li>
+                <li class="category">BOOKS<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="reviews.html"> <li class="subcategory">Reviews</li></a>
+                    </ul> <br>
+                </li>
+                <br><br><br><br> <li class="category">ARCHIVES<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="2023.html"> <li class="subcategory">2023</li></a>
+                    </ul> <br>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-div"> <br>
+            
+            <br><div id="csharp">
+                <h3 class="blogCategory" >C#</h3>
+                <h1 class="blogTitle" >Write code for humans first</h1>
+                <p class="date"><i class="fa-regular fa-clock"></i> NOVEMBER 27, 2023 | 4 min read<i class="fa-regular fa-user"></i><a class="link" href="https://ashtondunderdale.github.io/portfolio/"> ASHTON DUNDERDALE</a></p> <br>
+
+                <p>
+                    If you have been coding for a while, you have probably heard the phrase 'premature optimisation': the act of changing how 
+                    a program functions to make it faster before it is necessary. Developers often encounter this common pitfall, often justifying
+                    it solely based on performance concerns but never considering its priority level over readability.<br><br>
+
+                    It looks something like this: <br><br> 
+
+                    <i>"You know, if you replace straightforward array iteration with a complex bitwise operation, it will marginally boost the 
+                        performance of your book sorting algorithm." </i>🤓 <br><br>
+
+                    The statement is correct, but the person is arguably wrong. It will increase the performance as bitwise operations typically execute in one clock cycle
+                    whereas array processing involves traversing stored elements, introducing additional latency, but computers are <i>very</i> fast and the 
+                    impact it will have on real-world performances are negligible. <br><br> <br>
+
+                    Take the 'for loop' for instance, and its counterpart, the 'foreach' (C#). For loops will iterate until a certain condition is true. They
+                    have three parts: an initial declaration statement, a conditional statement that iterates until false, and a statement that will be executed
+                    each iteration. Foreach loops are different in that it simply iterates through the collection, for the amount of items in the collection. The
+                    key difference being that instead of using an indexed element, it uses a loop variable to perform the iteration. <br><br>
+
+                    <i>For:</i><br> <br>
+                </p>
+
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007788; font-weight: bold">int</span>[] numbers = { <span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>, <span style="color: #FF6600">5</span> };
+
+<span style="color: #006699; font-weight: bold">for</span> (<span style="color: #007788; font-weight: bold">int</span> i = <span style="color: #FF6600">0</span>; i &lt; numbers.Length; i++)
+{
+    <span style="color: #007788; font-weight: bold">int</span> squared = numbers[i] * numbers[i];
+    Console.WriteLine(<span style="color: #AA0000;">$</span><span style="color: #CC3300">&quot;The square of {numbers[i]} is {squared}&quot;</span>);
+}
+</pre></div>
+
+               <br><p><i>Foreach:</i></p><br>
+
+<div style="background: #f0f3f3; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007788; font-weight: bold">int</span>[] numbers = { <span style="color: #FF6600">1</span>, <span style="color: #FF6600">2</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">4</span>, <span style="color: #FF6600">5</span> };
+
+<span style="color: #006699; font-weight: bold">foreach</span> (<span style="color: #007788; font-weight: bold">int</span> number <span style="color: #006699; font-weight: bold">in</span> numbers)
+{
+    <span style="color: #007788; font-weight: bold">int</span> squared = num * num;
+    Console.WriteLine(<span style="color: #AA0000;">$</span><span style="color: #CC3300">&quot;The square of {num} is {squared}&quot;</span>);
+}
+</pre></div>
+    
+                 <br> <p>Noticeably, readability is greatly enhanced by the foreach loop versus the for. So much so that the syntax of the foreach loop
+                    is comparable to that of plain english: <i>"for each number in numbers".</i> Not to mention that, depending on the program you are 
+                    writing, 99.9% of your program's total runtime will likely be waiting for user input, that said, micro optimisation should not be 
+                    applicable in that scenario (or most for that matter).
+                 </p>
+                    
+                    <br><br>
+                    
+                <p>
+                    <i>So, which is it?</i><br><br>
+
+                    While the provided example above shows how you will almost always use the <i>foreach</i> loop for simple array iteration,
+                    take note that it is case-specific. In scenarios where explicit control over the loop index is necessary, such as iterating through
+                    elements conditionally or in reverse order, a <i>for</i> loop would be more suitable.
+
+                    <br><br><br>
+
+                    This form of micro-optimisation can be seen almost everywhere in software development. <br><br>
+                    
+                    Imagine this: Barry is a software developer that is spending a significant amount of time and resources implementing complex functionalities and
+                    cutting-edge technologies, anticipating that these features will make him stand out in the market. But, unfortunately he did not ensure the 
+                    basic features of his product met the needs and expectations of the user base. Nobody cared that his groundbreaking, state-of-the-art data
+                    analytics engine could generate intricate cash spending plans because his product did not allow users to log their income and expenses. Barry's company
+                    went bankrupt.
+
+                    <br><br>
+                    To be an efficient developer, it is good practice to begin coding with a focus on readability, reserving performance optimisation 
+                    interventions for cases where it is measured and deemed required. We should prioritise code that not only functions correctly but is 
+                    also comprehensible. Readability takes precedence over raw speed and performance if it compromises clarity.
+
+
+                    <br><br><br>In the words of Knuth (Hoare): <q><i>Premature optimisation is the root of all evil.</i></q> <br><br>
+
+                    <b>Resources:</b> <br> <br>
+                     &emsp; - <a class="link" href="https://en.wikipedia.org/wiki/Agile_software_development"><u>Agile Methodologies</u></a> <br>
+                     &emsp; - <a class="link" href="https://en.wikipedia.org/wiki/Program_optimization"><u>Code Optimisation</u></a>
+
+                </p>
+            </div>
+            
+            <hr class="postSeparator"> <br><br><br>
+        </div>
+    </div>
+</body>
+</html>
