@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c1c580d1a9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script src="scripts.js"></script>
+    <title>dev-notes</title>
+</head>
+<body>
+    <div id="loading-bar"></div>
+
+
+    <div id="string"></div>
+    <div id="ball" onclick="toggleNightLight()"></div>
+
+    <audio id="audio" src="lightSwitchOne.mp3"></audio>
+    <audio id="audio2" src="lightSwitchTwo.mp3"></audio>
+
+    <ul class="navbar">
+        <li class="nav-item right"><a href="https://ashtondunderdale.github.io/portfolio/">Portfolio</a></li>
+    </ul>
+    <div class="">
+        <a class="link" href="index.html"><h1>< dev-notes ></h1></a> 
+    </div>
+    <hr class="topSeparator">
+    <div class="container">
+        <div class="side-div">
+            <ul>
+                <li class="category">PROGRAMMING<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="brainfuck.html"> <li class="subcategory">BrainFuck</li></a>
+                        <a  class="link" href="csharp.html"> <li class="subcategory">C#</li></a>
+                        <a  class="link" href="python.html"> <li class="subcategory">Python</li></a>
+                        <a  class="link" href="qsharp.html"> <li class="subcategory">Q#</li></a>
+                    </ul>
+                </li> <br>
+                <li class="category">GENERAL<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="mathematics.html"> <li class="subcategory">Mathematics</li></a>
+                        <a  class="link" href="philosophy.html"> <li class="subcategory">Philosophy</li></a>
+                        <a  class="link" href="physics.html"> <li class="subcategory">Physics</li></a>
+                    </ul> <br>
+                </li>
+                <li class="category">PROJECTS<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="entityGrid.html"> <li class="subcategory">Entity Grid</li></a>
+                    </ul> <br>
+                </li>
+                <li class="category">BOOKS<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="reviews.html"> <li class="subcategory">Reviews</li></a>
+                    </ul> <br>
+                </li>
+                <br><br><br><br> <li class="category">ARCHIVES<br><br>
+                    <ul class="subcategory-list">
+                        <a  class="link" href="2023.html"> <li class="subcategory">2023</li></a>
+                    </ul> <br>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-div"> <br><br>
+            <h3 class="blogCategory" >PROJECTS</h3>
+            <div id="welcome">
+                <h1 class="blogTitle" >Life in a Termial</h1>
+                <p class="date"><i class="fa-regular fa-clock"></i> DECEMBER 17, 2023 | 12 min read<i class="fa-regular fa-user"></i><a class="link" href="https://ashtondunderdale.github.io/portfolio/"> ASHTON DUNDERDALE</a></p> <br>
+
+                <p>
+                    Charles Darwin said “let the strongest live, and the weakest die” in reference to his theory of natural selection, a theory formed more than 150 years ago, yet predicted nearly perfectly the origin of species. In this blog post I will attempt to digitally emulate some of his proclamations.
+                    <br><br>
+Since to be alive means to be in constant motion, a plane of existence is required for active movement. I decided to do this in the form of “nodes” symbolised by dots in a grid. For this I used two for loops, one printing out the height of the grid, and then a for loop within that for loop to print the width of that grid ( the width would be printed for each height node ). This uses two class level constants: GRID_WIDTH and GRID_HEIGHT.
+<br><br>
+Next, I decided to add the actual entities and give it some basic movement and behaviour properties. I created an Entity class with the following attributes: 
+<br><br>
+&emsp; Character: a symbol to display the entity in the terminal <br>
+&emsp; PositionX and PositionY: To allow movement and the altering of these properties.
+<br><br>
+I then created a method that can be called to create a certain amount of entities based on a constant class level variable: ENTITY_COUNT. My initial idea for creating the entities was to call the method ENTITY_COUNT a number of times, however with scalability in mind, as the simulation grows and the entities increase, these method calls would likely build up and slow down the simulation. Instead, I simply changed it to a for loop inside the method that will execute ENTITY_COUNT amount of times, only calling the method once. Upon each iteration, the method will create an entity, add it to an entity list and then return that list. This list can now be cleanly iterated through to perform actions for each entity.
+<br><br>
+I also created a class level constant that would dictate the speed of the simulation called SIMULATION_SPEED_MS. This is how many times the program would “iterate” and update the entities and their aforementioned actions.
+At this point the entities are able to choose a random location around them and move to it, they are also confined within the grid width and height inclusively.
+<br><br>
+In existence, the emergence of life necessitates reason and its product is evolution. Next, I added a food entity - something for the entities to collect and use to survive. But for this to be functional, I changed the entity class to allow for death to occur as without it life would have no need to evolve. Food spawns randomly on the node grid and can be collected by colliding with an entity. Each entity has a “food list” assigned to the object of that instance, storing this food, allowing for multiple to be collected and stored.
+The Entity Property “iterations until death” was added in order to orchestrate the cycle of life and death, this counter can be reset by consuming, or colliding with food. For example the iteration until death counter starts at 10, then for each iteration it will decrease by 1 until 0, upon the entity will die, however if the iterations until death is at 1, 5, 6, etc, then it will reset back to 10. If an entity has multiple food objects stored in their food list, then once their health is about to reach 0, it will be auto consumed to prevent death until none is left.
+<br><br>
+Since life is not constant, it must reproduce to continue existing. I altered the Entity class so that whe 2 food is in the collected food list at any time, the entity will pick a random adjacent square and reproduce - creating a brand new entity with the same properties - this new entity can also reproduce. This will only occur if the entity has 2, since it must prioritise itself first, a selfish gene if you will.
+<br><br>
+The current state of the simulation consists of 3 major components: the entities themselves, their ability to collect food, and their ability to asexually reproduce. But, there is only a set amount of food at the start of the simulation, removing the possibility of life reproducing forever. So, I decided to add a method that periodically spawns food on random grid nodes. Spawning 1 - 2 food per iteration randomly, based on my own experiments, seems like a good value as more than that in a small grid seems too much and clogs up the grid with more food than entities.
+
+Now we have a working simulation with spawning, movement, and reproduction mechanics, we can experiment with it. Firstly, I changed the simulation with the following configurations: grid size: 4x4, entity count: 1, food per iteration: 1.
+<br><br>
+Result: They reproduced rapidly with such a small area to move in and such rapid food spawns.
+<br><br>
+Since they can last 40 iterations before death, and with 16 total tiles to move and food to generate on all of them, it is clear they will last indefinitely. To combat this, and add some more speculative outcomes, I changed to iterations before death property to match the grid size: 4.
+<br><br>
+However the result was the same, this is because even though with many attempts of re running the simulation until it managed to find food twice and reproduce to start the rapid development of life, with other factors such as time to allow more food to spawn, the life will always advance and reproduce to match the size of it's terrestrial plane - at least in smaller areas. Because of this, I decided to increase the grid size.
+<br><br>
+Here is the new configuration: grid size: 8x8, entity count: 1, food per iteration: 1, iterations until death: 8. It took about 7 tries to trigger reproduction, since not enough food was spawning, and the entity kept dying after the 8 iterations, until by chance it managed to acquire 2 food in 8 iterations and reproduce. An equilibrium was formed with average entities being 13.56. I then decided to re-run the simulation 100 times to see how many times they would have actually succeeded in thriving, and about 16% of the time, they would manage to reproduce before dying out. I then decided to do this with the 4x4.
+<br><br>
+New configuration: grid size: 12x12, entity count: 1, food per iteration: 1, iterations until death: 12. It seems based on the data below, that as grid size increases, so does the chance they will survive, this could also be as iterations until death increases - that much is obvious however it is countered by the increasing grid size.
+<br><br>
+New configuration: grid size: 16x16, entity count: 1, food per iteration: 1, iterations until death: 16. The percentage chance of entity thriving has shot up since 4x4, seemingly because of the up trend in grid size increase, however it could also be an optimal balance between grid size, and iterations until death.
+<br><br>
+New configuration: grid size: 20x20, entity count: 1, food per iteration: 1, iterations until death: 20. Only 9% down from 24 survived this time, implying that the iterations per death does not follow the grid size and form an equilibrium linearly. The next 100 simulations support this.
+<br><br>
+New configuration: grid size: 24x24, entity count: 1, food per iteration: 1, iterations until death: 24. Again, iterations per death is not strictly tied to grid size as a 1:1 ratio, iterations per death must increase dramatically for an equilibrium compared to grid size.
+<br><br><br>
+Simulation results:
+<br><br>
+&emsp; 4x4: &emsp;&emsp;avg: 10.51, &emsp; 13 / 100 <br>
+&emsp; 8x8: &emsp;&emsp;avg: 13.56, &emsp; 16 / 100 <br> 
+&emsp; 12x12:  &emsp;avg: 15.11,   &emsp;22 / 100 <br>
+&emsp; 16x16:  &emsp;avg: 16.73,   &emsp;24 / 100 <br>
+&emsp; 20x20:  &emsp;avg: 18.51,     &emsp;  9 / 100 <br>
+&emsp; 24x24:  &emsp;avg: 19.48,     &emsp;  7 / 100 <br> <br>
+
+For life to have any chance to live somewhat indefinitely, there has to be some growth of intelligence or learning to adapt to its environment - in this case there is none currently as the movements are random, but so is the food. Because the food is randomly spawned there would be no need for the entities to learn and increase in intelligence, therefore the food must have some sort of pattern to it. To solve this, I decided to add a “food cluster” instead of randomly generating food, this will take up a node on the graph and spawn food around it in a specific area. Next, to allow the creatures to learn the patterns of the food, I added a new property to the entity class: “food pattern gene”. If an entity contains this gene then they will be able to learn from the food's spawning location and stay around the area that spawns the most food ( the food cluster generators ). 
+<br><br>
+The algorithm will work like this: Each direction: up, down, left, and right, will have a number assigned to it which will equate a cumulative percentage. For example if up has 5, down has 1, left has 3, and right has 3, the sum of those numbers is 12, then we do 100 / 12 = 8.333, and now we can work out how much each directions influence is worth:
+<br><br>
+&emsp; 8.333 * 5 = 41.665 ( up ) <br>
+&emsp; 8.333 * 1 = 8.333 ( down ) <br>
+&emsp; 8.333 * 3 = 24.999 ( left ) <br>
+&emsp; 8.333 * 3 = 24.999 ( right ) <br>
+<br>
+( each number for each move will automatically start at 1, 25% each - effectively random ) <br><br>
+Here we can see the breakdown of the percentages of each move and what it is worth, but how did we get here? Imagine this scenario: The entity moves up by 1, it finds no food, it then moves up by 1 and finds food, this means that up is incremented by 1 and is now 2 ( left, right, and down are all 1 currently ). This means that now, up has a 40% of being chosen rather than down, left, or right. Suppose the creature by chance moves left and finds food, it will also increment by 1, now up and left are 2, and down and right are 1.
+<br><br>
+Now the food clusters were adding some pattern to the food, the gene logic could be put to the test. Firstly I set up four control variables, the aforementioned up, down… etc, values. These all defaulted at 1. I then converted them into a percentage by taking the sum of the values and dividing it by 100 and then multiplying it by the corresponding value. I then generated a random number between 1 and 101 exclusively, and then it would decide based on the percentages which direction to choose to move in. If food was found at the new node then the direction they just moved will be seen as a positive move for their survival and therefore will increment by 1.
+<br><br>
+After adding this logic I noticed a few things, the entities seemed to drift off into the right side of the screen when the food clusters were on the left and drift into the right when they were onto the left. This is because their learning behaviour is entirely static and is only affected when they find food, not when they don't find food. For example, if the cluster is on the left, and they by chance are on the right side of the cluster and move right, then find food, they will have a much higher chance to move right again ( away from the cluster ). So, to mitigate this issue, I added another control variable for each entity, a “decay factor”. This decay factor will effectively multiply the direction value by 0.9, slowly diminishing its directional strength and influence on the entity, iteration by iteration.
+<br><br>
+From some more simulations and experiments, I found that in a random environment, the entities without the food gene performed the best, and when contested with a single food cluster the entities with the food pattern gene were actually so strongly attracted to the location of the food, that the entities without it died out as they blocked the food source from them.
+
+                </p>
+                <br>
+                &emsp;<b>Resources:</b> <br> <br>
+                &emsp;&emsp; - <a class="link" href="https://en.wikipedia.org/wiki/Darwinism"><u>Darwinism</u></a> <br>
+                &emsp;&emsp; - <a class="link" href="https://en.wikipedia.org/wiki/Natural_selection"><u>Natural Selection</u></a>
+
+            </div><br>
+            
+        </div>
+    </div>
+</body>
+</html>
