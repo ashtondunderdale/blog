@@ -1,5 +1,4 @@
 import 'package:blog/utils/data.dart';
-import 'package:blog/utils/styles.dart';
 import 'package:blog/widgets/filter.dart';
 import 'package:flutter/material.dart';
 
