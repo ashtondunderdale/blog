@@ -2,6 +2,8 @@ import 'package:blog/utils/data.dart';
 import 'package:blog/widgets/filter_option.dart';
 import 'package:flutter/material.dart';
 
+import '../models/filter.dart';
+
 class PostFilter extends StatefulWidget {
   const PostFilter({super.key, required this.activeFilter, required this.onFilterSelected, required this.activePost});
 
@@ -34,7 +36,7 @@ class _PostFilterState extends State<PostFilter> {
           ),
         ),
         Container(
-          width: 200,
+          width: 220,
           height: 600,
           color: Colors.white,
           child: Column(

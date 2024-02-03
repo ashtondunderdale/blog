@@ -1,4 +1,3 @@
-import 'package:blog/posts/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
@@ -30,14 +29,12 @@ class BlogPost extends StatelessWidget {
                 post.subTitle,
                 style: subTitleStyle,
               ),
-              SizedBox(
-                width: 600,
-                height: 100,
+              Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(top: 16),
+                  padding: const EdgeInsets.only(top: 16),
                   child: SafeArea(
                     child: Markdown(
-                      data: postMarkDownData,
+                      data: post.content,
                     ),
                   ),
                 ),
