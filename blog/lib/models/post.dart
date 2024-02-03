@@ -4,7 +4,6 @@ class Post {
   String subTitle;
   String category;
   String content;
-
   String date;
 
   Post({

@@ -1,10 +1,12 @@
-import 'package:blog/utils/styles.dart';
+import 'package:blog/posts/test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import '../models/post.dart';
+import '../utils/styles.dart';
 
 class BlogPost extends StatelessWidget {
-  const BlogPost({super.key, required this.post});
+  const BlogPost({Key? key, required this.post}) : super(key: key);
 
   final Post post;
 
@@ -22,17 +24,22 @@ class BlogPost extends StatelessWidget {
             children: [
               Text(
                 post.title,
-                style: titleStyle
+                style: titleStyle,
               ),
               Text(
                 post.subTitle,
-                style: subTitleStyle,         
+                style: subTitleStyle,
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Text(
-                  post.content,
-                  style: contentStyle,
+              SizedBox(
+                width: 600,
+                height: 100,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 16),
+                  child: SafeArea(
+                    child: Markdown(
+                      data: postMarkDownData,
+                    ),
+                  ),
                 ),
               ),
             ],

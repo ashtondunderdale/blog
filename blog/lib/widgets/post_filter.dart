@@ -1,9 +1,9 @@
 import 'package:blog/utils/data.dart';
-import 'package:blog/widgets/filter.dart';
+import 'package:blog/widgets/filter_option.dart';
 import 'package:flutter/material.dart';
 
 class PostFilter extends StatefulWidget {
-  const PostFilter({Key? key, required this.activeFilter, required this.onFilterSelected, required this.activePost});
+  const PostFilter({super.key, required this.activeFilter, required this.onFilterSelected, required this.activePost});
 
   final String activeFilter;
   final Function(String) onFilterSelected;
@@ -30,6 +30,7 @@ class _PostFilterState extends State<PostFilter> {
             },
             hasActivePost: widget.activePost != null &&
                 posts.any((post) => post.title == "Home" && post.title == widget.activePost),
+            postCount: -1,
           ),
         ),
         Container(
@@ -49,7 +50,9 @@ class _PostFilterState extends State<PostFilter> {
                   isSelected: widget.activeFilter == filter.name,
                   hasActivePost: widget.activePost != null &&
                       posts.any((post) => post.category == filter.name && post.title == widget.activePost),
+                  postCount: posts.where((post) => post.category == filter.name).length,
                 ),
+
             ],
           ),
         ),
