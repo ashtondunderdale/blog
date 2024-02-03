@@ -15,7 +15,7 @@ class Post extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: SizedBox(
         height: MediaQuery.of(context).size.height / 5,
-        width: MediaQuery.of(context).size.width ,
+        width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: const EdgeInsets.only(left: 8, top: 8),
           child: Column(
@@ -33,6 +33,7 @@ class Post extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
                   content,
+                  style: contentStyle,
                 ),
               ),
             ],

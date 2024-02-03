@@ -1,5 +1,7 @@
 import 'package:blog/widgets/post.dart';
 
+import 'models/filter.dart';
+
 List<Post> posts = [
   const Post(
     title: "building a computer", 
@@ -21,3 +23,9 @@ List<Post> posts = [
   ),
 ];
 
+List<Filter> filters = [
+  Filter(name: "Computer Architecture"),
+  Filter(name: "C#"),
+  Filter(name: "Flutter"),
+  Filter(name: "Mathematics"),
+];

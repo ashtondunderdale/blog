@@ -12,3 +12,15 @@ final TextStyle subTitleStyle = GoogleFonts.lato(
   fontSize: 20,
   letterSpacing: 0.5,
 );
+
+final TextStyle contentStyle = GoogleFonts.lato(
+  color: Colors.black,
+  fontSize: 14,
+  letterSpacing: 0.5,
+);
+
+final TextStyle filterStyle = GoogleFonts.lato(
+  color: Colors.black,
+  fontSize: 14,
+  letterSpacing: 0.5,
+);
