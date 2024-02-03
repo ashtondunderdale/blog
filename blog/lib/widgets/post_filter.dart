@@ -3,7 +3,7 @@ import 'package:blog/widgets/filter.dart';
 import 'package:flutter/material.dart';
 
 class PostFilter extends StatefulWidget {
-  const PostFilter({super.key, required this.activeFilter, required this.onFilterSelected, required this.activePost});
+  const PostFilter({Key? key, required this.activeFilter, required this.onFilterSelected, required this.activePost});
 
   final String activeFilter;
   final Function(String) onFilterSelected;
@@ -21,12 +21,15 @@ class _PostFilterState extends State<PostFilter> {
         Padding(
           padding: const EdgeInsets.only(bottom: 16, right: 32),
           child: FilterOption(
-            name: "Home", 
+            name: "Home",
             isSelected: widget.activeFilter == "Home",
-            onTap: () {  
-              widget.onFilterSelected("Home");
-            },       
-            hasActivePost: widget.activePost == "Home",
+            onTap: () {
+              setState(() {
+                widget.onFilterSelected("Home");
+              });
+            },
+            hasActivePost: widget.activePost != null &&
+                posts.any((post) => post.title == "Home" && post.title == widget.activePost),
           ),
         ),
         Container(
@@ -39,10 +42,13 @@ class _PostFilterState extends State<PostFilter> {
                 FilterOption(
                   name: filter.name,
                   onTap: () {
-                    widget.onFilterSelected(filter.name);
+                    setState(() {
+                      widget.onFilterSelected(filter.name);
+                    });
                   },
                   isSelected: widget.activeFilter == filter.name,
-                  hasActivePost: widget.activePost == filter.name,
+                  hasActivePost: widget.activePost != null &&
+                      posts.any((post) => post.category == filter.name && post.title == widget.activePost),
                 ),
             ],
           ),
@@ -51,3 +57,4 @@ class _PostFilterState extends State<PostFilter> {
     );
   }
 }
+

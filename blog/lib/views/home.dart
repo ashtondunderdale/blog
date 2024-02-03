@@ -14,11 +14,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late String activeFilter;
   String? activePost;
+  List<dynamic> filteredPosts = [];
 
   @override
   void initState() {
     super.initState();
     activeFilter = "Home";
+    filteredPosts = posts;
   }
 
   @override
@@ -39,7 +41,7 @@ class _HomeState extends State<Home> {
                   child: activePost == null
                       ? Column(
                           children: [
-                            for (var post in posts) createPostPreview(post) ?? const SizedBox(),
+                            for (var post in filteredPosts) createPostPreview(post) ?? const SizedBox(),
                           ],
                         )
                       : displayPost(activePost!),
@@ -54,9 +56,11 @@ class _HomeState extends State<Home> {
                   onFilterSelected: (String selectedFilter) {
                     setState(() {
                       activeFilter = selectedFilter;
-                      activePost = null; 
+                      activePost = null;
+                      filterPosts();
                     });
-                  }, activePost: activePost,
+                  },
+                  activePost: activePost,
                 ),
               ),
             ],
@@ -66,22 +70,23 @@ class _HomeState extends State<Home> {
     );
   }
 
+  void filterPosts() {
+    filteredPosts = posts.where((post) => activeFilter == "Home" || activeFilter == post.category).toList();
+  }
+
   Widget? createPostPreview(dynamic post) {
-    if (activeFilter == "Home" || activeFilter == post.category) {
-      return BlogPostPreview(
-        post: post,
-        onTap: () {
-          setState(() {
-            activePost = post.category;
-          });
-        },
-      );
-    }
-    return null;
+    return BlogPostPreview(
+      post: post,
+      onTap: () {
+        setState(() {
+          activePost = post.title;
+        });
+      },
+    );
   }
 
   Widget displayPost(String postCategory) {
-    var post = posts.firstWhere((post) => post.category == postCategory);
+    var post = filteredPosts.firstWhere((post) => post.title == postCategory);
 
     return BlogPost(
       post: post,
