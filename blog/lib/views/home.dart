@@ -1,8 +1,9 @@
 import 'package:blog/utils/data.dart';
 import 'package:blog/widgets/post_blog.dart';
-import 'package:blog/widgets/post_preview.dart'; // Import PostPreview widget
+import 'package:blog/widgets/post_preview.dart';
 import 'package:blog/widgets/post_filter.dart';
 import 'package:flutter/material.dart';
+
 
 class Home extends StatefulWidget {
   Home({Key? key});
@@ -13,6 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late String activeFilter;
+  late String activePost;
 
   @override
   void initState() {
@@ -70,12 +72,12 @@ class _HomeState extends State<Home> {
   Widget? createPost(dynamic post) {
     if (activeFilter == "Home") {
       return BlogPostPreview(
-        post: post
+        post: post,
       );
     } 
     else if (activeFilter == post.category) {
       return BlogPost(
-        post: post
+        post: post,
       );
     } 
     return null;

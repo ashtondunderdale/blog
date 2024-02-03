@@ -19,7 +19,7 @@ class _PostFilterState extends State<PostFilter> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: 16, right: 32),
           child: FilterOption(
             name: "Home", 
             isSelected: widget.activeFilter == "Home",

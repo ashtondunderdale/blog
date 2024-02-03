@@ -9,14 +9,34 @@ class BlogPostPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 80,
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Color.fromARGB(255, 237, 237, 237))),
-      ),
-      child: const Row(
-
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: Container(
+        width: 900,
+        height: 80,
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(color: Color.fromARGB(255, 237, 237, 237))),
+        ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Text(
+                post.date,
+              ),
+            ),
+            const Spacer(),
+            SizedBox(
+              width: 300,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 32),
+                child: Text(
+                  post.title,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
