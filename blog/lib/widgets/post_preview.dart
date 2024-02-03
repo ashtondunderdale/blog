@@ -1,3 +1,4 @@
+import 'package:blog/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../models/post.dart';
@@ -36,6 +37,7 @@ class _BlogPostPreviewState extends State<BlogPostPreview> {
                       padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         widget.post.date,
+                        style: contentStyle,
                       ),
                     ),
                     const Spacer(),
@@ -45,6 +47,7 @@ class _BlogPostPreviewState extends State<BlogPostPreview> {
                         padding: const EdgeInsets.only(left: 32),
                         child: Text(
                           widget.post.title,
+                          style: contentStyle,
                         ),
                       ),
                     ),

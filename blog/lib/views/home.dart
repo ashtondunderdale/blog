@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late String activeFilter;
-  String? activePost;
+  String? activePost = "building a computer";
   List<dynamic> filteredPosts = [];
 
   @override

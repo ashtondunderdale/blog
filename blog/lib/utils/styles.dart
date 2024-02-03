@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final TextStyle titleStyle = GoogleFonts.lato(
+var font = GoogleFonts.raleway;
+
+final TextStyle titleStyle = font(
   color: Colors.black,
   fontSize: 28,
   letterSpacing: 1,
 );
 
-final TextStyle subTitleStyle = GoogleFonts.lato(
+final TextStyle subTitleStyle = font(
   color: Colors.black,
   fontSize: 20,
   letterSpacing: 0.5,
 );
 
-final TextStyle contentStyle = GoogleFonts.lato(
+final TextStyle contentStyle = font(
   color: Colors.black,
   fontSize: 14,
-  letterSpacing: 0.5,
+  letterSpacing: 12,
 );
 
-final TextStyle filterStyle = GoogleFonts.lato(
+final TextStyle filterStyle = font(
   color: Colors.black,
   fontSize: 14,
   letterSpacing: 0.5,
