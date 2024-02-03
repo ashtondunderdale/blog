@@ -1,4 +1,4 @@
-import 'package:blog/styles.dart';
+import 'package:blog/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class FilterOption extends StatelessWidget {
@@ -17,11 +17,22 @@ class FilterOption extends StatelessWidget {
         child: SizedBox(
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              name,
-              style: filterStyle.copyWith(
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              ),
+            child: Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 12,
+                  ),
+                ),
+                Text(
+                  name,
+                  style: filterStyle.copyWith(
+                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

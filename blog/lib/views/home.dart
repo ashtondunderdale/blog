@@ -1,15 +1,29 @@
-import 'package:blog/data.dart';
-import 'package:blog/widgets/post.dart';
+import 'package:blog/utils/data.dart';
+import 'package:blog/widgets/post_blog.dart';
+import 'package:blog/widgets/post_preview.dart'; // Import PostPreview widget
 import 'package:blog/widgets/post_filter.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Home extends StatefulWidget {
+  Home({Key? key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late String activeFilter;
+
+  @override
+  void initState() {
+    super.initState();
+    activeFilter = "Computer Architecture";
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 246, 246, 246),
+      backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       body: SingleChildScrollView(
         child: Center(
           child: Row(
@@ -24,26 +38,46 @@ class Home extends StatelessWidget {
                   child: Column(
                     children: [
                       for (var post in posts)
-                        Post(
-                          title: post.title, 
-                          subTitle: post.subTitle, 
-                          category: post.category,
-                          content: post.content,
-                        )
+                        createPost(post) ?? const SizedBox(),
                     ],
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  bottom: 800
+                  bottom: 800,
                 ),
-                child: PostFilter(),
+                child: PostFilter(
+                  activeFilter: activeFilter,
+                  onFilterSelected: (String selectedFilter) {
+                    setState(() {
+                      activeFilter = selectedFilter;
+
+                      if (activeFilter == "Home") {
+
+                      }
+                    });
+                  },
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget? createPost(dynamic post) {
+    if (activeFilter == "Home") {
+      return BlogPostPreview(
+        post: post
+      );
+    } 
+    else if (activeFilter == post.category) {
+      return BlogPost(
+        post: post
+      );
+    } 
+    return null;
   }
 }

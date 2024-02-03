@@ -1,13 +1,12 @@
-import 'package:blog/styles.dart';
+import 'package:blog/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class Post extends StatelessWidget {
-  const Post({super.key, required this.title, required this.subTitle, required this.category, required this.content});
+import '../models/post.dart';
 
-  final String title;
-  final String subTitle;
-  final String category;
-  final String content;
+class BlogPost extends StatelessWidget {
+  const BlogPost({super.key, required this.post});
+
+  final Post post;
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +21,17 @@ class Post extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                post.title,
                 style: titleStyle
               ),
               Text(
-                subTitle,
+                post.subTitle,
                 style: subTitleStyle,         
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                  content,
+                  post.content,
                   style: contentStyle,
                 ),
               ),

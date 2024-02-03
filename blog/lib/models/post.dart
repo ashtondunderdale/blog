@@ -5,5 +5,13 @@ class Post {
   String category;
   String content;
 
-  Post({required this.title, required this.subTitle, required this.category, required this.content});
+  String date;
+
+  Post({
+    required this.title, 
+    required this.subTitle, 
+    required this.category, 
+    required this.content, 
+    required this.date
+  });
 }
