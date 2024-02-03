@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
                       activeFilter = selectedFilter;
                       activePost = null; 
                     });
-                  },
+                  }, activePost: activePost,
                 ),
               ),
             ],
@@ -72,8 +72,7 @@ class _HomeState extends State<Home> {
         post: post,
         onTap: () {
           setState(() {
-            activePost = post.title;
-            print("activePost $activePost");
+            activePost = post.category;
           });
         },
       );
@@ -81,8 +80,8 @@ class _HomeState extends State<Home> {
     return null;
   }
 
-  Widget displayPost(String postTitle) {
-    var post = posts.firstWhere((post) => post.title == postTitle);
+  Widget displayPost(String postCategory) {
+    var post = posts.firstWhere((post) => post.category == postCategory);
 
     return BlogPost(
       post: post,

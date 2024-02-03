@@ -3,10 +3,11 @@ import 'package:blog/widgets/filter.dart';
 import 'package:flutter/material.dart';
 
 class PostFilter extends StatefulWidget {
-  const PostFilter({super.key, required this.activeFilter, required this.onFilterSelected});
+  const PostFilter({super.key, required this.activeFilter, required this.onFilterSelected, required this.activePost});
 
   final String activeFilter;
   final Function(String) onFilterSelected;
+  final String? activePost;
 
   @override
   State<PostFilter> createState() => _PostFilterState();
@@ -25,6 +26,7 @@ class _PostFilterState extends State<PostFilter> {
             onTap: () {  
               widget.onFilterSelected("Home");
             },       
+            hasActivePost: widget.activePost == "Home",
           ),
         ),
         Container(
@@ -40,6 +42,7 @@ class _PostFilterState extends State<PostFilter> {
                     widget.onFilterSelected(filter.name);
                   },
                   isSelected: widget.activeFilter == filter.name,
+                  hasActivePost: widget.activePost == filter.name,
                 ),
             ],
           ),

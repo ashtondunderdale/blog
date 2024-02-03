@@ -2,11 +2,12 @@ import 'package:blog/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class FilterOption extends StatelessWidget {
-  const FilterOption({super.key, required this.name, required this.onTap, required this.isSelected});
+  const FilterOption({Key? key, required this.name, required this.onTap, required this.isSelected, required this.hasActivePost});
 
   final String name;
   final VoidCallback onTap;
   final bool isSelected;
+  final bool hasActivePost;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +20,17 @@ class FilterOption extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(right: 8),
-                  child: Icon(
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: hasActivePost ? const Icon(
                     Icons.arrow_back,
                     size: 12,
-                  ),
+                  ) : const SizedBox(),
                 ),
                 Text(
                   name,
                   style: filterStyle.copyWith(
-                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                    fontWeight: isSelected || hasActivePost ? FontWeight.bold : FontWeight.normal,
                   ),
                 ),
               ],

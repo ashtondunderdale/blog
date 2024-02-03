@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../models/post.dart';
 
 class BlogPostPreview extends StatelessWidget {
-  BlogPostPreview({super.key, required this.post, required this.onTap});
+  const BlogPostPreview({super.key, required this.post, required this.onTap});
 
   final Post post;
-  VoidCallback onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
