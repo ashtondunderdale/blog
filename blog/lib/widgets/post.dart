@@ -1,3 +1,4 @@
+import 'package:blog/styles.dart';
 import 'package:flutter/material.dart';
 
 class Post extends StatelessWidget {
@@ -12,12 +13,30 @@ class Post extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height / 5,
         width: MediaQuery.of(context).size.width ,
-        color: Colors.grey,
-        child: Text(
-          title
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8, top: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: titleStyle
+              ),
+              Text(
+                subTitle,
+                style: subTitleStyle,         
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  content,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

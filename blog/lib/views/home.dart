@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 246, 246, 246),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
             child: Container(
               height: MediaQuery.of(context).size.height * 2,
               width: MediaQuery.of(context).size.width / 2.5,
-              color: const Color.fromARGB(255, 225, 225, 225),
+              color: Colors.white,
               child: Column(
                 children: [
                   for (var post in posts)
